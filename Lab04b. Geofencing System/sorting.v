@@ -23,17 +23,18 @@ reg [2:0] i;
 
 always@(posedge clk or posedge rst) begin
     if(rst) 
-        counter <= 0;
-    else if(counter != 6)
-        counter <= counter + 1;
+		counter <= 0;
+	  
+	else if(counter != 6)
+		counter <= counter + 1;
 end
 
 always@(posedge clk or posedge rst) begin
     if(rst) begin
-        for(i = 0; i < 6; i = i + 1) begin
-            sorted_X[i] <= 0;
-            sorted_Y[i] <= 0;
-	sorted_R[i] <= 0;
+	    for(i = 0; i < 6; i = i + 1) begin
+		    sorted_X[i] <= 0;
+			sorted_Y[i] <= 0;
+			sorted_R[i] <= 0;
 		end
 	end
 		
