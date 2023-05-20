@@ -115,5 +115,4 @@ always@(posedge clk or posedge rst) begin
 		         (sorted_X[5]*sorted_Y[0] - sorted_X[0]*sorted_Y[5])) >>> 1;
 	end
 end
-
 endmodule
