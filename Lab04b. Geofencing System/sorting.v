@@ -32,28 +32,20 @@ end
 always@(posedge clk or posedge rst) begin
     if(rst) begin
 	    for(i = 0; i < 6; i = i + 1) begin
-		    sorted_X[i] <= 0;
-			sorted_Y[i] <= 0;
-			sorted_R[i] <= 0;
+		    sorted_X[i] <= 0; sorted_Y[i] <= 0; sorted_R[i] <= 0;
 		end
 	end
 		
 	else if(counter != 6) begin  //store temporarily
-	    sorted_X[counter] <= {1'b0, X};
-		sorted_Y[counter] <= {1'b0, Y};
-		sorted_R[counter] <= {1'b0, R};
+	    sorted_X[counter] <= {1'b0, X}; sorted_Y[counter] <= {1'b0, Y}; sorted_R[counter] <= {1'b0, R};
 	end
 	
 	else begin
 	    if(in_valid && (~sort_idx) && (sort_cnt < 5)) begin
 		    for(i = 1; i < 5; i = i + 2) begin
 			    if(((sorted_X[i] - sorted_X[0]) * (sorted_Y[i+1] - sorted_Y[0]) - (sorted_X[i+1] - sorted_X[0]) * (sorted_Y[i] - sorted_Y[0])) < 0) begin
-				    sorted_X[i] <= sorted_X[i+1];
-					sorted_Y[i] <= sorted_Y[i+1];
-					sorted_R[i] <= sorted_R[i+1];
-					sorted_X[i+1] <= sorted_X[i];
-					sorted_Y[i+1] <= sorted_Y[i];
-					sorted_R[i+1] <= sorted_R[i];
+				    sorted_X[i] <= sorted_X[i+1]; sorted_Y[i] <= sorted_Y[i+1]; sorted_R[i] <= sorted_R[i+1];
+					sorted_X[i+1] <= sorted_X[i]; sorted_Y[i+1] <= sorted_Y[i]; sorted_R[i+1] <= sorted_R[i];
 				end
 			end
 		end
@@ -61,12 +53,8 @@ always@(posedge clk or posedge rst) begin
 		else if(in_valid && sort_idx && (sort_cnt < 5)) begin
 		    for(i = 2; i < 6; i = i + 2) begin
 			    if(((sorted_X[i] - sorted_X[0]) * (sorted_Y[i+1] - sorted_Y[0]) - (sorted_X[i+1] - sorted_X[0]) * (sorted_Y[i] - sorted_Y[0])) < 0) begin
-				    sorted_X[i] <= sorted_X[i+1];
-					sorted_Y[i] <= sorted_Y[i+1];
-					sorted_R[i] <= sorted_R[i+1];
-					sorted_X[i+1] <= sorted_X[i];
-					sorted_Y[i+1] <= sorted_Y[i];
-					sorted_R[i+1] <= sorted_R[i];
+				    sorted_X[i] <= sorted_X[i+1]; sorted_Y[i] <= sorted_Y[i+1]; sorted_R[i] <= sorted_R[i+1];
+					sorted_X[i+1] <= sorted_X[i]; sorted_Y[i+1] <= sorted_Y[i]; sorted_R[i+1] <= sorted_R[i];
 				end
 			end
 		end
