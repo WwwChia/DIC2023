@@ -37,5 +37,4 @@ always@(posedge clk or posedge rst) begin
 		    out[idx] <= 0;
 	end
 end
-
 endmodule
