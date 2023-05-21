@@ -1,6 +1,6 @@
 //------------------------------------------------------//
 //- @author: Wei Chia Huang                             //        
-//- Last update: Apr 17 2023                            //
+//- Last update: May 22 2023                            //
 //------------------------------------------------------//
 module sorting(clk, rst, X, Y, R, is_valid, Area);
 
@@ -19,7 +19,8 @@ reg in_valid;
 reg sort_idx;
 reg [2:0] counter;
 reg [2:0] sort_cnt;
-reg [2:0] i;
+
+integer i;
 
 always@(posedge clk or posedge rst) begin
     if(rst) 
@@ -76,10 +77,10 @@ always@(posedge clk or posedge rst) begin
     if(rst) 
 		sort_cnt <= 0;
 	  
-	else if(in_valid && (sort_cnt != 5))
+	else if(in_valid && (sort_cnt != 5))  //start sorting
 		sort_cnt <= sort_cnt + 1;
 		
-	else if(sort_cnt == 5)
+	else if(sort_cnt == 5)  //end sorting
 		sort_cnt <= 0;
 end		
 
@@ -87,7 +88,7 @@ always@(posedge clk or posedge rst) begin
     if(rst) 
 		sort_idx <= 0;
 	  
-	else if(counter == 6)
+	else if(counter <= 6)
 		sort_idx <= ~sort_idx;
 end
 
