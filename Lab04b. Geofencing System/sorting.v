@@ -88,7 +88,7 @@ always@(posedge clk or posedge rst) begin
     if(rst) 
 		sort_idx <= 0;
 	  
-	else if(counter <= 6)
+	else if(counter == 6)
 		sort_idx <= ~sort_idx;
 end
 
