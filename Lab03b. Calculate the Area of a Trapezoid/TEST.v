@@ -30,9 +30,9 @@ always@(posedge clk or posedge rst) begin
   		{a,b,c} <= 8'b0;
   	
 	else begin	
-		a <= 1+ {$random} % 254; //0~255
-    	b <= 1+ {$random} % 254;
-		c <= 1+ {$random} % 254;	
+		a <= 1 + {$random} % 254; //0~255
+    	b <= 1 + {$random} % 254;
+		c <= 1 + {$random} % 254;	
   	end
 end
 
