@@ -206,7 +206,6 @@ module div_2(in, out);
     BUFX12 b15(.Y(out[15]), .A(in[16]));
 endmodule
 
-
 module lab03b(a, b, c, out);
     input   [7:0] a, b, c;
     output [15:0] out;
