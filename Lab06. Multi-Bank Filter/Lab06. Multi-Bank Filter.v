@@ -22,9 +22,9 @@ wire [4:0] L[0:11];
 wire [4:0] H[0:11];
 
 reg  [6:0] counter;
-reg  [4:0] i;
-reg  [4:0] j;
-reg  [4:0] k;
+integer i;
+integer j;
+integer k;
 
 reg [12:0] d[0:11];
 
