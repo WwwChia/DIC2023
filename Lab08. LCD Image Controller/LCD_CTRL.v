@@ -134,6 +134,8 @@ always@(posedge clk) begin
         busy <= 1;
     else if(IROM_A == 63)
         busy <= 0;
+    else if(cmd == 0)
+        busy <= 1;
 end
 
 always@(posedge clk) begin
