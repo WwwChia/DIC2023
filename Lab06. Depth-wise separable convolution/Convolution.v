@@ -136,10 +136,11 @@ always@(posedge CLK) begin
 end
 
 always@(posedge CLK) begin
-    if(cycle_num >= 31)
+    if(cycle_num >= 31) begin
 		ReLU1_1 <= (conv2_1[24] == 1'b1)? 0 : conv2_1;
 		ReLU1_2 <= (conv2_2[24] == 1'b1)? 0 : conv2_2;
 		ReLU1_3 <= (conv2_3[24] == 1'b1)? 0 : conv2_3;
+    end
 end
 
 always@(posedge CLK) begin
