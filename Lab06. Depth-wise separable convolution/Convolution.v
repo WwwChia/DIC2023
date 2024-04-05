@@ -44,7 +44,7 @@ reg signed [24:0] ReLU1_1, ReLU1_2, ReLU1_3;
 reg signed [31:0] pro3_1, pro3_2, pro3_3;
 reg signed [32:0] conv3;
 
-always@(posedge CLK) begin
+always@(posedge CLK or posedge RESET) begin
     if(RESET)
         cycle_num <= 0;
     else if(IN_VALID)
@@ -90,7 +90,7 @@ always@(posedge CLK) begin
     end
 end
 
-always@(posedge CLK) begin
+always@(posedge CLK or posedge RESET) begin
     if(RESET)
         j <= 0;
     else if(cycle_num >= 22)
@@ -165,14 +165,14 @@ always@(posedge CLK) begin
     end
 end
 
-always@(posedge CLK) begin
+always@(posedge CLK or posedge RESET) begin
     if(RESET)
         result_cnt <= 0;
     else if(cycle_num >= 34)
         result_cnt <= result_cnt + 1;
 end
 
-always@(posedge CLK) begin
+always@(posedge CLK or posedge RESET) begin
     if(RESET)
         OUT_VALID <= 0;
 	else if(result_cnt == 88)
